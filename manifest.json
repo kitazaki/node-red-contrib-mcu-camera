@@ -1,0 +1,24 @@
+{
+	"include": [
+		"$(MODDABLE)/examples/manifest_base.json",
+		"$(MODDABLE)/modules/io/imagein/camera/manifest.json"
+	],
+	"modules": {
+		"camera": "./camera"
+	},
+	"preload": [
+		"camera"
+	],
+	"creation": {
+		"static": 0,
+		"chunk": {
+			"initial": 260096,
+			"incremental": 512
+		},
+		"heap": {
+			"initial": 512,
+			"incremental": 64
+		},
+		"stack": 2048
+	}
+}

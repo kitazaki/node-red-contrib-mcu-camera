@@ -1,0 +1,32 @@
+{
+  "name": "@kitazaki/node-red-contrib-mcu-camera",
+  "version": "0.0.1",
+  "description": "camera node with Node-RED MCU",
+  "main": "mcu_camera.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "node-red": {
+    "version": ">=3.0.0",
+    "nodes": {
+      "camera": "mcu_camera.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitazaki/node-red-contrib-mcu-camera.git"
+
+  },
+  "keywords": [
+    "node-red",
+    "node-red-mcu",
+    "moddable",
+    "camera"
+  ],
+  "author": "@kitazaki",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kitazaki/node-red-contrib-mcu-camera/issues"
+  },
+  "homepage": "https://github.com/kitazaki/node-red-contrib-mcu-camera#readme"
+}
