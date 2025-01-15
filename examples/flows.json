@@ -1,0 +1,123 @@
+[
+    {
+        "id": "cea1dc6d22184e2a",
+        "type": "tab",
+        "label": "フロー 1",
+        "disabled": false,
+        "info": "",
+        "env": [],
+        "_mcu": {
+            "mcu": true
+        }
+    },
+    {
+        "id": "8ec7eb62d213c9b3",
+        "type": "inject",
+        "z": "cea1dc6d22184e2a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "test",
+        "payloadType": "str",
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "76c4778e163007ac"
+            ]
+        ]
+    },
+    {
+        "id": "76c4778e163007ac",
+        "type": "debug",
+        "z": "cea1dc6d22184e2a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7a6367cd58346cff",
+        "type": "mcu_camera",
+        "z": "cea1dc6d22184e2a",
+        "name": "",
+        "imagetype": "jpeg",
+        "width": "176",
+        "height": "144",
+        "moddable_manifest": {
+            "include": "manifest.json"
+        },
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "5f8096c0a127d6f9"
+            ]
+        ]
+    },
+    {
+        "id": "7b9885c29e53854c",
+        "type": "http in",
+        "z": "cea1dc6d22184e2a",
+        "name": "",
+        "url": "/camera",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "7a6367cd58346cff"
+            ]
+        ]
+    },
+    {
+        "id": "5f8096c0a127d6f9",
+        "type": "http response",
+        "z": "cea1dc6d22184e2a",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-type": "image/jpeg"
+        },
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 510,
+        "y": 140,
+        "wires": []
+    }
+]
