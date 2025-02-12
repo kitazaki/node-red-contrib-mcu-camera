@@ -13,7 +13,6 @@ class McuCamera extends Node {
 	//console.log("imagetype,width,height:"+imagetype+","+width+","+height);
 
 	const cacheCamera = 'mcu_camera';
-	console.log(cacheCamera);
 
 	cache ??= new Map;
 	camera = cache.get(cacheCamera);
