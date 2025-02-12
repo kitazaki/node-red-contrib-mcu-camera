@@ -2,6 +2,7 @@ import {Node} from "nodered";
 import Camera from "embedded:x-io/imagein/camera";
 import Timer from "timer";
 let camera, frame, imagetype, width, height;
+let cache;
 
 class McuCamera extends Node {
     onStart(config) {
@@ -11,14 +12,21 @@ class McuCamera extends Node {
         height = Number(config.height);
 	//console.log("imagetype,width,height:"+imagetype+","+width+","+height);
 
-	camera = new Camera({
-		width,
-		height,
-		imageType: imagetype,
-		format: "buffer/disposable",
-	});
-	camera.start();
-    };
+	const cacheCamera = 'mcu_camera';
+
+	cache ??= new Map;
+	camera = cache.get(cacheCamera);
+	if (!camera) {
+		camera = new Camera({
+			width,
+			height,
+			imageType: imagetype,
+			format: "buffer/disposable",
+		});
+		cache.set(cacheCamera, camera)
+		camera.start();
+		};
+	}
 
     onMessage(msg, done) {
       try {
